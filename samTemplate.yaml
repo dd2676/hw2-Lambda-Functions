@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: "AWS::Serverless-2016-10-31"
+Description: HW2 Lambda Template for Code Pipeline
+Resources:
+  CDLambda1-SearchPhotos:
+    Type: "AWS::Serverless::Function"
+    Properties:
+      FunctionName: hw2-search-photos-CD
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.9
+      CodeUri: ./hw2-search-photos
+      Description: "Search Photos Lambda Function for CD"
+      MemorySize: 256
+      Timeout: 30
+      Role: "arn:aws:iam::945261194256:role/hw2-lambda-admin-role"
+      Environment:
+        Variables:
+          REGION: us-east-1
+  CDLambda2-IndexPhotos:
+    Type: "AWS::Serverless::Function"
+    Properties:
+      FunctionName: hw2-index-photos-CD
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.9
+      CodeUri: ./hw2-index-photos
+      Description: "Index Photos Lambda Function for CD"
+      MemorySize: 256
+      Timeout: 30
+      Role: "arn:aws:iam::945261194256:role/hw2-lambda-admin-role"
+      Environment:
+        Variables:
+          REGION: us-east-1
