@@ -1,0 +1,10 @@
+version: 0.1
+phases:
+  install:
+    commands:
+      - aws cloudformation package --template-file hw2-samTemplate.yaml --s3-bucket hw2-lambdapipeline-cd --output-template-file hw2-outputsamTemplate.yml
+artifacts:
+  type: zip
+  files:
+    - hw2-samTemplate.yaml
+    - hw2-outputsamTemplate.yml
