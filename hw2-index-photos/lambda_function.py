@@ -17,6 +17,7 @@ logger.setLevel(logging.DEBUG)
 
 def lambda_handler(event, context):
     
+    print("MY NAME IS TANYA!")
     def type_converter(obj):
         if isinstance(obj, datetime):
             return obj.__str__()
